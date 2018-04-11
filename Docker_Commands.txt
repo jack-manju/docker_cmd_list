@@ -1,0 +1,62 @@
+docker build -t  <image name> .   <Run this command from Docker file directory OR you can specify Docker file location as well>
+
+docker container run --publish 80:80 nginx --detach nginx --name <container name>
+docker container ls -a
+docker container logs webhost
+docker logs -f jenkins
+
+docker container rm -f  <forcefully remove container>
+docker container start <container id / name> 
+docker container stop <container id / name>
+
+docker container --rm -it <image name> bash --(this command create container and removes container immediately when u exit from container)
+
+!!!!!!!!!!!!! Docker Meta, which process running and Live performance data !!!!!!!!!!!!!!!!!!!! 
+
+docker inspect <get the ip address of container>
+docker container top 
+docker container stats
+ 
+!!!!!!!!!!!!!!!!!!!! !!!!!!!!!!!!!!!!!!!!Get into Docker !!!!!!!!!!!!!!!!!!!! !!!!!!!!!!!!!!!!!!!! !!!!!!!!!!!!!!!!!!!! 
+
+docker container run -it  --name <container name>  <image name> bash 
+docker container start
+docker container exec -it  <container name> /bin/bash
+
+##########Docker networking ######
+docker container port <container name> 	By Default network is bridge
+docker network ls 
+
+###########Docker image#########
+
+docker image ls
+docker tag firstimage YOUR_DOCKERHUB_NAME/firstimage
+docker push YOUR_DOCKERHUB_NAME/firstimage
+
+docker pull gparmar8653/ubuntu_specialg1:latest  ===> Repository should be public
+
+docker login
+cat .docker/config.json
+docker logout 
+
+###########Docker Logging###############
+everything Spit /dev/stdout and /dev/stderr from the log files.. 
+
+ln -sf /dev/stdout /var/log/ngix/access.log \
+	&& ln -sf /dev/stderr /var/log/ngix/error.log
+
+###########On virtual box##############
+
+docker run -it -network=host -p 8080:80 -p 4443:443 --name client1 ubuntu:latest /bin/bash
+
+############################################
+shell find command 
+#find . -not -name .git -not -name package.json -exec rm -vf {} \;
+
+################################################
+Remove Dangling image
+docker images -qf dangling=true | xargs docker rmi
+################################################
+Docker Compose basically used to spin up multiple Dockers 
+Docker-compose.yml should be place at the root level of application
+Dockerfile also require at the same place if you would like to trigger custom docker image
