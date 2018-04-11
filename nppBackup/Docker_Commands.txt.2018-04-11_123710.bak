@@ -60,7 +60,3 @@ docker images -qf dangling=true | xargs docker rmi
 Docker Compose basically used to spin up multiple Dockers 
 Docker-compose.yml should be place at the root level of application
 Dockerfile also require at the same place if you would like to trigger custom docker image
-################################################
-To check CPU / RAM Usage
-docker stats <container name / ID>
-################################################
