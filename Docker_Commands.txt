@@ -91,3 +91,11 @@ Docker health check
 docker container ls  --> shows health check is running
 docker container inspect  <container details>  --> Last 5 health check  
 
+################################################
+AWS ECR Commands
+################################################
+Login into ECR Repository
+aws ecr get-login --no-include-email  --> Copy command ouptput and paste it in terminal
+
+
+
